@@ -252,6 +252,14 @@ if (preg_match('/^-?\d{1,3}(\.\d{3})+$/', $precio)) {
                             </p>
 
                             <div class="d-flex justify-content-end gap-2 mt-3">
+                                
+                            
+                                <a href="listar.php" 
+                                   class="btn btn-secondary">
+                                   
+                                   Volver
+                                
+                                </a>
 
                                 <a href="registrar.php"
                                    class="btn btn-outline-secondary">

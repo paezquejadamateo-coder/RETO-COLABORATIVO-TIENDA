@@ -76,6 +76,9 @@ $productos = $consulta->fetchAll(PDO::FETCH_ASSOC);
         <p class="text-muted">
             Consulta los productos registrados en el sistema.
         </p>
+        <a href="registrar.php" class="btn btn-success mb-3">
+            + Registrar producto
+        </a>
 
         <!-- Total de productos -->
         <div class="card shadow-sm mb-4">
@@ -231,6 +234,7 @@ $productos = $consulta->fetchAll(PDO::FETCH_ASSOC);
                                         </td>
                                         <td>
 
+
 <a href="detalle.php?id=<?= (int) $producto['id_producto'] ?>&amp;buscar=<?= urlencode($buscar) ?>"
    class="btn btn-outline-primary btn-sm">
 
@@ -238,7 +242,22 @@ $productos = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
 </a>
 
+<a href="editar.php?id=<?= (int) $producto['id_producto'] ?>"
+   class="btn btn-warning btn-sm">
+
+    Editar
+
+</a>
+
+<a href="eliminar.php?id=<?= (int) $producto['id_producto'] ?>"
+   class="btn btn-danger btn-sm">
+
+    Eliminar
+
+</a>
+
 </td>
+
 
                                     </tr>
 
