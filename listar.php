@@ -3,7 +3,9 @@
 require_once __DIR__ . '/conexion.php';
 
 // Recibir el texto de búsqueda
-$buscar = trim($_GET['buscar'] ?? '');
+$buscar = $_GET['buscar'] ?? '';
+
+$buscar = is_string($buscar) ? trim($buscar) : '';
 
 // Verificar si el usuario realizó una búsqueda
 if ($buscar !== '') {
@@ -162,6 +164,7 @@ $productos = $consulta->fetchAll(PDO::FETCH_ASSOC);
                                 <th>Precio</th>
                                 <th>Cantidad</th>
                                 <th>Categoría</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
 
@@ -170,7 +173,7 @@ $productos = $consulta->fetchAll(PDO::FETCH_ASSOC);
                             <?php if (empty($productos)): ?>
 
                                 <tr>
-                                    <td colspan="6" class="text-center py-4">
+                                    <td colspan="7" class="text-center py-4">
 
     <?php if ($buscar !== ''): ?>
 
@@ -226,6 +229,16 @@ $productos = $consulta->fetchAll(PDO::FETCH_ASSOC);
                                         <td>
                                             <?= htmlspecialchars($producto['categoria']) ?>
                                         </td>
+                                        <td>
+
+<a href="detalle.php?id=<?= (int) $producto['id_producto'] ?>&amp;buscar=<?= urlencode($buscar) ?>"
+   class="btn btn-outline-primary btn-sm">
+
+    Ver producto
+
+</a>
+
+</td>
 
                                     </tr>
 
